@@ -1,0 +1,2 @@
+# R5T.X0003
+Instances.cs code file- and Instances class-related extensions to ICodeFileOperator and IClassOperator.
