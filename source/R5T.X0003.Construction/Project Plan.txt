@@ -1,0 +1,3 @@
+R5T.X0003.Construction - Construction project for Instances.cs code file- and Instances class-related extensions to ICodeFileOperator and IClassOperator..
+
+GOALS:
