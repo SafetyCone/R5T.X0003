@@ -1,0 +1,3 @@
+R5T.X0003.X003 - ICodeFileName and IProjectPathsOperator extensions for the Instances.cs code file for the Instances class.
+
+GOALS:

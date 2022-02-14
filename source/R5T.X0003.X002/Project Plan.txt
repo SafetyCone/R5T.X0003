@@ -1,0 +1,3 @@
+R5T.X0003.X002 - ITypeName and IClassName extensions for the Instances class.
+
+GOALS:
