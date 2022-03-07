@@ -18,13 +18,32 @@ namespace System
             return output;
         }
 
-        public static string GetInstancesCodeFilePath(this IProjectPathsOperator _,
+        public static string GetInstancesCodeFilePathFromProjectDirectoryPath(this IProjectPathsOperator _,
             string projectDirectoryPath)
         {
             var output = Instances.PathOperator.GetDirectoryPath(
                 projectDirectoryPath,
                 _.GetInstancesCodeFileRelativePath());
 
+            return output;
+        }
+
+        /// <summary>
+        /// Chooses <see cref="GetInstancesCodeFilePathFromProjectDirectoryPath(IProjectPathsOperator, string)"/> as the default.
+        /// </summary>
+        public static string GetInstancesCodeFilePath(this IProjectPathsOperator _,
+            string projectDirectoryPath)
+        {
+            var output = _.GetInstancesCodeFilePathFromProjectDirectoryPath(projectDirectoryPath);
+            return output;
+        }
+
+        public static string GetInstancesCodeFilePathFromProjectPath(this IProjectPathsOperator _,
+            string projectFilePath)
+        {
+            var projectDirectoryPath = _.GetProjectDirectoryPath(projectFilePath);
+
+            var output = _.GetInstancesCodeFilePathFromProjectDirectoryPath(projectDirectoryPath);
             return output;
         }
     }

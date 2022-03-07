@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -18,6 +20,18 @@ namespace System
                 typeName,
                 propertyName,
                 initializationExpression);
+
+            return output;
+        }
+
+        public static IEnumerable<PropertyDeclarationSyntax> GetInstancesInstanceProperties(this IPropertyGenerator _,
+            IEnumerable<(string ExtensionMethodBaseInterfaceTypeName, string PropertyName, string InitializationExpression)> instanceTuples)
+        {
+            var output = instanceTuples
+                .Select(x => _.GetInstancesInstanceProperty(
+                    x.ExtensionMethodBaseInterfaceTypeName,
+                    x.PropertyName,
+                    x.InitializationExpression));
 
             return output;
         }

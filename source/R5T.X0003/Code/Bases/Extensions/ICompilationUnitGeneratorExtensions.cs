@@ -30,25 +30,9 @@ namespace System
 
             // Compute instance tuples.
             var instanceTuples = distinctExtensionMethodBaseInterfaceNamespacedTypeNames
-                .Select(x =>
-                {
-                    var embNamespaceName = Instances.NamespacedTypeName.GetNamespaceName(x);
-                    var embInterfaceTypeName = Instances.NamespacedTypeName.GetTypeName(x);
-                    var embTypeName = Instances.TypeName.GetTypeNameStemFromInterfaceName(embInterfaceTypeName);
-                    var embNamespacedTypeName = Instances.NamespacedTypeName.GetNamespacedName(
-                        embNamespaceName,
-                        embTypeName);
-
-                    var embTypeRelativeNamespacedTypeName = Instances.NamespacedTypeName.GetRelativeNamespacedTypeName(
-                        embNamespacedTypeName,
-                        namespaceName);
-
-                    var initializationExpression = $"{embTypeRelativeNamespacedTypeName}.{Instances.PropertyName.Instance()}";
-
-                    var propertyName = embTypeName;
-
-                    return (embInterfaceTypeName, propertyName, initializationExpression);
-                })
+                .Select(xExtensionMethodBaseInterfaceNamespaceName => Instances.Operation.GetInstanceTuple(
+                    xExtensionMethodBaseInterfaceNamespaceName,
+                    namespaceName))
                 .Now();
 
             var output = _.InNewNamespace(
