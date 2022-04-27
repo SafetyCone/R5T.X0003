@@ -23,7 +23,7 @@ namespace System
                         xTuple.ExtensionMethodBaseInterfaceTypeName,
                         xTuple.PropertyName,
                         xTuple.InitializationExpression)
-                        .Indent(Instances.Indentation.Property()))
+                        .IndentStartLine(Instances.Indentation.Property()))
                     .Now()
                 : Array.Empty<PropertyDeclarationSyntax>()
                 ;
